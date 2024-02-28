@@ -1,0 +1,21 @@
+.recipe-btn {
+  padding: 0px 3px;
+  margin-left: 5px;
+  background-color: darkgreen;
+  font-size: small;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+  display: inline-block,
+}
+
+.outlet-container {
+  border: 0px solid rgb(230, 220, 220);
+  background-color: rgb(243, 245, 248);
+  border-radius: 7px;
+  width: 500px;
+  flex: 4;
+  flex-direction: column;
+  margin: 20px;
+  padding: 5px
+}

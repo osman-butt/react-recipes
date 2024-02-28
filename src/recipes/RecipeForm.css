@@ -1,0 +1,31 @@
+.form-group {
+  margin-bottom: 15px;
+  display:flex;
+}
+.form-group label {
+
+  width: 100px;
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+.form-group input, .form-group textarea {
+  width: 50%;
+  padding: 4px;
+  box-sizing: border-box;
+}
+.form-group input[type="number"], .form-group input[type="text"] {
+  height: 25px;
+}
+.recipe-form-btn {
+  /* background-color: #080808; */
+  background-color: darkslategrey;
+  color: white;
+  padding: 5px 15px;
+  margin:3px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #0056b3;
+}
