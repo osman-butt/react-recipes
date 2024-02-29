@@ -1,6 +1,11 @@
 import "./RecipeForm.css";
-import { useState } from "react";
-import { getCategories, addRecipe, deleteRecipe, Recipe } from "../services/apiFacade";
+import { useEffect, useState } from "react";
+import {
+  getCategories,
+  addRecipe,
+  deleteRecipe,
+  Recipe,
+} from "../services/apiFacade";
 import { useLocation } from "react-router-dom";
 
 const EMPTY_RECIPE = {
@@ -19,18 +24,20 @@ export default function RecipeForm() {
   //const recipeToEdit = useLocation().state || null;
   const recipeToEdit = null;
   //const [formData, setFormData] = useState<Recipe>(recipeToEdit || EMPTY_RECIPE);
-  const [formData, setFormData] = useState<Recipe>(recipeToEdit || EMPTY_RECIPE);
+  const [formData, setFormData] = useState<Recipe>(
+    recipeToEdit || EMPTY_RECIPE
+  );
 
-  // useEffect(() => {
-  //   getCategories().then((res) => setCategories(res));
-  // }, []);
+  useEffect(() => {
+    getCategories().then(res => setCategories(res));
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // const { name, value } = e.target;
-    // setFormData((prevFormData) => ({
-    //   ...prevFormData,
-    //   [name]: value,
-    // }));
+    const { name, value } = e.target;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
   const handleDelete = (e: React.MouseEvent<HTMLButtonElement>) => {
     // e.preventDefault();
@@ -41,10 +48,10 @@ export default function RecipeForm() {
   };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    // e.preventDefault();
-    // const newRecipe = await addRecipe(formData);
-    // alert("New recipe added")
-    // console.info("New/Edited Recipe", newRecipe);
+    e.preventDefault();
+    const newRecipe = await addRecipe(formData);
+    alert("New recipe added");
+    console.info("New/Edited Recipe", newRecipe);
   };
 
   return (
@@ -53,7 +60,13 @@ export default function RecipeForm() {
       <form id="recipeForm">
         <div className="form-group">
           <label htmlFor="id">ID:</label>
-          <input type="text" id="name" name="name" disabled value={formData.id || ""} />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            disabled
+            value={formData.id || ""}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -134,7 +147,7 @@ export default function RecipeForm() {
           <input type="text" id="source" name="source" required />
         </div>
       </form>
-      <button type="submit" className="recipe-form-btn">
+      <button type="submit" className="recipe-form-btn" onClick={handleSubmit}>
         Submit
       </button>
       <button
