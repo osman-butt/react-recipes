@@ -26,6 +26,7 @@ export default function App() {
         <Route path="/add" element={<RecipeForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<h2>404 - Not Found</h2>} />
         {/* <Route path="/logout" element={<Logout />} /> */}
       </Routes>
     </Layout>
