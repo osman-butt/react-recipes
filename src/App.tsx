@@ -8,6 +8,7 @@ import Login from "./security/Login";
 import Layout from "./Layout";
 import Home from "./Home";
 import "./App.css";
+import Contact from "./Contact";
 
 export default function App() {
   //const auth = useAuth();
@@ -22,6 +23,7 @@ export default function App() {
         </Route>
         <Route path="/add" element={<RecipeForm />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/contact" element={<Contact />} />
         {/* <Route path="/logout" element={<Logout />} /> */}
       </Routes>
     </Layout>

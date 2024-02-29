@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import AuthStatus from "./security/AuthStatus";
 
 export default function NavHeader() {
@@ -6,19 +6,23 @@ export default function NavHeader() {
     <nav>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <NavLink to="/">Home</NavLink>
           {/* <Link to="/">Home</Link> */}
         </li>
         <li>
-          <a href="/categories">Categories</a>
+          <NavLink to="/categories">Categories</NavLink>
           {/* <Link to="/categories">Categories</Link> */}
         </li>
         <li>
-          <a href="/recipes">Recipes</a>
+          <NavLink to="/recipes">Recipes</NavLink>
           {/* <Link to="/recipes">Recipes</Link> */}
         </li>
         <li>
-          <a href="/add">Add</a>
+          <NavLink to="/add">Add</NavLink>
+          {/* <Link to="/add">Add</Link> */}
+        </li>
+        <li>
+          <NavLink to="/contact">Contact</NavLink>
           {/* <Link to="/add">Add</Link> */}
         </li>
         <AuthStatus />
