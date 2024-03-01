@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { Categories } from "./recipes/Categories";
 import Recipe from "./recipes/Recipe";
-import Recipes from "./recipes/RecipeList";
 import RecipeForm from "./recipes/RecipeForm";
 import Login from "./security/Login";
 //import Logout from "./security/_Logout";
