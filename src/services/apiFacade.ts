@@ -13,6 +13,7 @@ interface Recipe {
   youTube: string;
   ingredients: string;
   source: string;
+  owner: string;
 }
 
 interface Category {

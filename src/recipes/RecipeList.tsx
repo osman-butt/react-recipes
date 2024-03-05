@@ -15,6 +15,8 @@ export default function RecipeList() {
   //const auth = useAuth();
 
   useEffect(() => {
+    console.log(auth.username);
+    console.log(recipes.map(recipe => recipe.owner));
     getRecipes(category)
       .then(res => setRecipes(res))
       .catch(() => setError("Error fetching recipes, is the server running?"));
@@ -25,11 +27,12 @@ export default function RecipeList() {
       <li key={recipe.id}>
         <Link to={`${recipe.id}`}>{recipe.name}</Link>,
         {/*TODO:Eventually this should only be added for a logged in user*/}
-        {auth.isLoggedIn() && auth.isLoggedInAs(["USER"]) && (
-          <Link className="recipe-btn" to="/add" state={recipe}>
-            Edit{" "}
-          </Link>
-        )}
+        {auth.isLoggedIn() &&
+          (auth.isLoggedInAs(["ADMIN"]) || auth.username == recipe.owner) && (
+            <Link className="recipe-btn" to="/add" state={recipe}>
+              Edit{" "}
+            </Link>
+          )}
       </li>
     );
   });

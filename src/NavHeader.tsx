@@ -19,7 +19,7 @@ export default function NavHeader() {
           <NavLink to="/recipes">Recipes</NavLink>
           {/* <Link to="/recipes">Recipes</Link> */}
         </li>
-        {auth.isLoggedIn() && auth.isLoggedInAs(["USER"]) && (
+        {auth.isLoggedIn() && auth.isLoggedInAs(["USER", "ADMIN"]) && (
           <>
             <li>
               <NavLink to="/add">Add</NavLink>
@@ -33,9 +33,6 @@ export default function NavHeader() {
             </li>
           </>
         )}
-        {/* <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li> */}
         <AuthStatus />
       </ul>
     </nav>
