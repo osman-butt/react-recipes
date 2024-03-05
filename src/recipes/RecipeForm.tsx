@@ -17,6 +17,7 @@ const EMPTY_RECIPE = {
   youTube: "",
   ingredients: "",
   source: "",
+  owner: "",
 };
 
 export default function RecipeForm() {
