@@ -15,6 +15,10 @@ interface Recipe {
   source: string;
 }
 
+interface Category {
+  name: string;
+}
+
 interface Info {
   reference: string;
   created: string;
@@ -30,6 +34,12 @@ async function getCategories(): Promise<Array<string>> {
   categories = [...res];
   return categories;
 }
+
+async function addCategory(newCategory: Category): Promise<Category> {
+  const options = makeOptions("POST", newCategory);
+  return fetch(CATEGORIES_URL, options).then(handleHttpErrors);
+}
+
 async function getRecipes(category: string | null): Promise<Array<Recipe>> {
   //if (recipes.length > 0) return [...recipes];
   console.log("category", category);
@@ -55,10 +65,11 @@ async function getInfo(): Promise<Info> {
   return fetch(INFO_URL).then(handleHttpErrors);
 }
 
-export type { Recipe, Info };
+export type { Recipe, Info, Category };
 // eslint-disable-next-line react-refresh/only-export-components
 export {
   getCategories,
+  addCategory,
   getRecipes,
   getRecipe,
   addRecipe,

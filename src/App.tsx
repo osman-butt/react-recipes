@@ -11,6 +11,7 @@ import Contact from "./Contact";
 import RecipesLayout from "./recipes/RecipesLayout";
 import Logout from "./security/Logout";
 import RequireAuth from "./security/RequireAuth";
+import CategoryForm from "./category/CategoryForm";
 
 export default function App() {
   //const auth = useAuth();
@@ -27,12 +28,19 @@ export default function App() {
         <Route
           path="/add"
           element={
-            <RequireAuth roles={["ADMIN"]}>
+            <RequireAuth roles={["USER"]}>
               <RecipeForm />
             </RequireAuth>
           }
         />
-
+        <Route
+          path="/category"
+          element={
+            <RequireAuth roles={["ADMIN"]}>
+              <CategoryForm />
+            </RequireAuth>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<h2>404 - Not Found</h2>} />

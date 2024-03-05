@@ -19,19 +19,23 @@ export default function NavHeader() {
           <NavLink to="/recipes">Recipes</NavLink>
           {/* <Link to="/recipes">Recipes</Link> */}
         </li>
-        <li>
-          {auth.isLoggedIn() && auth.isLoggedInAs(["ADMIN"]) && (
+        {auth.isLoggedIn() && auth.isLoggedInAs(["USER"]) && (
+          <>
             <li>
               <NavLink to="/add">Add</NavLink>
             </li>
-          )}
-
-          {/* <Link to="/add">Add</Link> */}
-        </li>
-        <li>
+          </>
+        )}
+        {auth.isLoggedIn() && auth.isLoggedInAs(["ADMIN"]) && (
+          <>
+            <li>
+              <NavLink to="/category">Add Category</NavLink>
+            </li>
+          </>
+        )}
+        {/* <li>
           <NavLink to="/contact">Contact</NavLink>
-          {/* <Link to="/add">Add</Link> */}
-        </li>
+        </li> */}
         <AuthStatus />
       </ul>
     </nav>
