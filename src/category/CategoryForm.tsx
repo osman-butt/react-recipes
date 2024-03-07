@@ -21,9 +21,9 @@ export default function CategoryForm() {
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    const newRecipe = await addCategory(formData);
-    alert("New recipe added");
-    console.info("New/Edited Recipe", newRecipe);
+    const newCategory = await addCategory(formData);
+    alert("New category added");
+    console.info("New Category", newCategory);
   };
 
   return (
